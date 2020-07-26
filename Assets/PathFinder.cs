@@ -12,20 +12,33 @@ public class PathFinder : MonoBehaviour
     Vector2Int.down,
     Vector2Int.left
   };
+  public List<Waypoint> GetPath() 
+  {
+    ColorStartAndEnd();
+    LoadBlocks();
+    BreadthFirstSearch();
+    FormThePath();
+    return path;
+  }
   Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
   Queue<Waypoint> queue = new Queue<Waypoint>();
   bool isRunning = true;
   Waypoint searchCenter;
-    // Start is called before the first frame update
-    void Start()
-    {
-      ColorStartAndEnd();
-      LoadBlocks();
-      PathFind();
-      //ExploreNeighbours();
-    }
+  List<Waypoint> path = new List<Waypoint>();
+  private void FormThePath()
+  {
+    path.Add(endWaypoint);
 
-  private void PathFind()
+    Waypoint previous = endWaypoint.exploredFrom;
+    while ( previous != startWaypoint) {
+      path.Add(previous);
+      previous = previous.exploredFrom;
+    }
+    path.Add(startWaypoint);
+    path.Reverse();
+  }
+
+  private void BreadthFirstSearch()
   {
     queue.Enqueue(startWaypoint);
     while (queue.Count > 0 && isRunning) {
@@ -34,7 +47,6 @@ public class PathFinder : MonoBehaviour
       HaltIfEndFound();
       ExploreNeighbours();
     }
-    print("Finished");
   }
 
   private void HaltIfEndFound()
@@ -51,12 +63,9 @@ public class PathFinder : MonoBehaviour
     foreach (Vector2Int direction in directions)
     {
       Vector2Int neighbourCoordinates = searchCenter.GetGridPos() + direction;
-      try
+      if (grid.ContainsKey(neighbourCoordinates))
       {
         QueueNewNeighbours(neighbourCoordinates);
-      }
-      catch {
-        
       }
     }
   }
@@ -73,7 +82,7 @@ public class PathFinder : MonoBehaviour
   }
 
   private void ColorStartAndEnd()
-  {
+  { // todo maybe move fro mstart
     startWaypoint.SetTopColor(Color.green);
     endWaypoint.SetTopColor(Color.red);
   }
