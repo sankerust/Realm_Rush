@@ -12,12 +12,6 @@ public class EnemyDamage : MonoBehaviour
     {
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
    private void OnParticleCollision(GameObject other) {
       print("particle collision");
       GameObject enemyHitFx = Instantiate(hitFx, transform.position, Quaternion.identity);

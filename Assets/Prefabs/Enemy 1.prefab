@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 4186753068968602}
   - component: {fileID: 33557114732638536}
   - component: {fileID: 23293523395199632}
+  - component: {fileID: 1528932130}
   m_Layer: 0
-  m_Name: Enemy_A
+  m_Name: Body
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -78,6 +79,19 @@ MeshRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
+--- !u!65 &1528932130
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1670769466866500}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 14.999999, y: 13.999999, z: 12.999999}
+  m_Center: {x: 0, y: 6.9999995, z: 0}
 --- !u!1 &896305046368017654
 GameObject:
   m_ObjectHideFlags: 0
@@ -88,6 +102,8 @@ GameObject:
   m_Component:
   - component: {fileID: 4949714250893451023}
   - component: {fileID: 4782346035994217034}
+  - component: {fileID: 1094891219350977957}
+  - component: {fileID: 5169740684775638680}
   m_Layer: 0
   m_Name: Enemy 1
   m_TagString: Untagged
@@ -122,3 +138,33 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0548c9904485734ba8cfe5132252538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!54 &1094891219350977957
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896305046368017654}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 1
+  m_IsKinematic: 1
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
+--- !u!114 &5169740684775638680
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 896305046368017654}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd8e0db50bae44e449ddda86a9fc2179, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitFx: {fileID: 6313822852330551622, guid: be5ee9cdf3e60f643a7d9cdb7bc50969, type: 3}
+  hitsToDie: 25
