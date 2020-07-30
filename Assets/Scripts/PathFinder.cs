@@ -52,7 +52,6 @@ public class PathFinder : MonoBehaviour
   private void HaltIfEndFound()
   {
     if (searchCenter == endWaypoint) {
-      print("Found the end");
       isRunning = false;
     }
   }

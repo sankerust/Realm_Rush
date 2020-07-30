@@ -12,10 +12,9 @@ public class EnemyDamage : MonoBehaviour
     {
     }
    private void OnParticleCollision(GameObject other) {
-      print("particle collision");
       GameObject enemyHitFx = Instantiate(hitFx, transform.position, Quaternion.identity);
       ProcessHit();
-      if (hitPoints <= 1)
+      if (hitPoints <= 0)
       {
         KillEnemy();
       }
