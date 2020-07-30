@@ -14,12 +14,21 @@ public class PathFinder : MonoBehaviour
   };
   public List<Waypoint> GetPath() 
   {
+    if (path.Count == 0)
+    {
+      CalculatePath();
+    }
+    return path;
+  }
+
+  private void CalculatePath()
+  {
     ColorStartAndEnd();
     LoadBlocks();
     BreadthFirstSearch();
     FormThePath();
-    return path;
   }
+
   Dictionary<Vector2Int, Waypoint> grid = new Dictionary<Vector2Int, Waypoint>();
   Queue<Waypoint> queue = new Queue<Waypoint>();
   bool isRunning = true;

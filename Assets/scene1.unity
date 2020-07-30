@@ -5002,24 +5002,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 2058474631}
     m_Modifications:
-    - target: {fileID: 699143937, guid: cc5cb245f9cf4334fb42ad4ad1c96d77, type: 3}
-      propertyPath: InitialModule.startSpeed.scalar
-      value: 200
-      objectReference: {fileID: 0}
-    - target: {fileID: 699143937, guid: cc5cb245f9cf4334fb42ad4ad1c96d77, type: 3}
-      propertyPath: moveWithTransform
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 345633637736047149, guid: cc5cb245f9cf4334fb42ad4ad1c96d77,
         type: 3}
       propertyPath: targetEnemy
       value: 
       objectReference: {fileID: 729771985}
-    - target: {fileID: 345633637736047149, guid: cc5cb245f9cf4334fb42ad4ad1c96d77,
-        type: 3}
-      propertyPath: attackRange
-      value: 20
-      objectReference: {fileID: 0}
     - target: {fileID: 345633637736047186, guid: cc5cb245f9cf4334fb42ad4ad1c96d77,
         type: 3}
       propertyPath: m_LocalPosition.x
