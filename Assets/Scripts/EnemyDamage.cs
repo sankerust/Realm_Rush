@@ -6,10 +6,13 @@ public class EnemyDamage : MonoBehaviour
 {
   [SerializeField] GameObject hitFx;
   [SerializeField] int hitPoints = 15;
+  AudioSource sound;
 
     // Start is called before the first frame update
     void Start()
     {
+      sound = GetComponent<AudioSource>();
+      sound.Stop();
     }
    private void OnParticleCollision(GameObject other) {
       GameObject enemyHitFx = Instantiate(hitFx, transform.position, Quaternion.identity);
@@ -27,5 +30,6 @@ public class EnemyDamage : MonoBehaviour
     private void ProcessHit()
     {
       hitPoints--;
+      sound.Play();
     }
 }

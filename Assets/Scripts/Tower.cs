@@ -11,6 +11,7 @@ public class Tower : MonoBehaviour
   [SerializeField] ParticleSystem projectileParticle;
   Transform targetEnemy;
   void Start() {
+
   }
     void Update()
     {
@@ -51,8 +52,6 @@ public class Tower : MonoBehaviour
   private void FireAtEnemy()
   {
      float distanceToEnemy = Vector3.Distance(targetEnemy.transform.position, gameObject.transform.position);
-     print("range is " + attackRange);
-     print("distance is " + distanceToEnemy);
      if (distanceToEnemy <= attackRange) {
        Shoot(true);
      } else {
