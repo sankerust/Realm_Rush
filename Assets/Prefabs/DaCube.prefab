@@ -172,7 +172,7 @@ TextMesh:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2921462848201337381}
-  m_Text: 1,1
+  m_Text: 1,-1
   m_OffsetZ: 0
   m_CharacterSize: 2
   m_LineSpacing: 1
@@ -197,6 +197,7 @@ GameObject:
   - component: {fileID: 6852048500253050624}
   - component: {fileID: 7781400863797811894}
   - component: {fileID: 2975047200857317139}
+  - component: {fileID: 6480741061123720249}
   m_Layer: 0
   m_Name: DaCube
   m_TagString: Untagged
@@ -247,6 +248,19 @@ MonoBehaviour:
   exploredColor: {r: 0, g: 0, b: 0, a: 0}
   isExplored: 0
   exploredFrom: {fileID: 0}
+--- !u!65 &6480741061123720249
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4830635719719985116}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 9, y: 9, z: 9}
+  m_Center: {x: 0, y: -5, z: 0}
 --- !u!1001 &1113958984
 PrefabInstance:
   m_ObjectHideFlags: 0
