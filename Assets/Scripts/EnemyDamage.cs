@@ -17,8 +17,8 @@ public class EnemyDamage : MonoBehaviour
     }
     private void KillEnemy()
     {
-      var vfx = Instantiate(enemyDeathFx, transform.position, Quaternion.identity);
-      vfx.Play();
+      var deathEffect = Instantiate(enemyDeathFx, transform.position, Quaternion.identity);
+      deathEffect.Play();
       Destroy(gameObject);
     }
     private void ProcessHit()

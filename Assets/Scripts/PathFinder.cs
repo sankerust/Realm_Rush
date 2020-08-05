@@ -38,7 +38,7 @@ public class PathFinder : MonoBehaviour
     SetAsPath(endWaypoint);
 
     Waypoint previous = endWaypoint.exploredFrom;
-    while ( previous != startWaypoint) {
+    while (previous != startWaypoint) {
       SetAsPath(previous);
       previous = previous.exploredFrom;
     }
@@ -103,15 +103,6 @@ public class PathFinder : MonoBehaviour
         } else {
           grid.Add(gridPos, waypoint);
         }
-        //print("Loaded " + grid.Count + " blocks");
-        
       }
-      
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

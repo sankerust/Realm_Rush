@@ -20,7 +20,6 @@ public class EnemyMovement : MonoBehaviour
   {
     foreach (Waypoint waypoint in path)
     {
-        //transform.position = waypoint.transform.position; //obsolete
         nextWaypoint = waypoint;
         yield return new WaitForSeconds(1f);
     }
@@ -32,7 +31,7 @@ public class EnemyMovement : MonoBehaviour
     transform.LookAt(nextWaypoint.transform);
   }
 
-  private void SmoothMovement() //remove completely and uncomment FollowPath to revert
+  private void SmoothMovement()
   {
     float step = enemySpeed * Time.deltaTime;
     transform.position = Vector3.MoveTowards(transform.position, nextWaypoint.transform.position, step);
