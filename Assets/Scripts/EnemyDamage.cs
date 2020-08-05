@@ -19,6 +19,9 @@ public class EnemyDamage : MonoBehaviour
     {
       var deathEffect = Instantiate(enemyDeathFx, transform.position, Quaternion.identity);
       deathEffect.Play();
+
+      float particleDestroyDelay = deathEffect.main.duration;
+      Destroy(deathEffect.gameObject, particleDestroyDelay);
       Destroy(gameObject);
     }
     private void ProcessHit()
