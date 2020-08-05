@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
+  Waypoint nextWaypoint;
+  float enemySpeed = 10f;
     
     
     void Start()
@@ -18,13 +20,20 @@ public class EnemyMovement : MonoBehaviour
   {
     foreach (Waypoint waypoint in path)
     {
-        transform.position = waypoint.transform.position;
+        //transform.position = waypoint.transform.position; //obsolete
+        nextWaypoint = waypoint;
         yield return new WaitForSeconds(1f);
     }
 
   }
   void Update()
-    {
-        
-    }
+  {
+    SmoothMovement();
+  }
+
+  private void SmoothMovement() //remove completely and uncomment FollowPath to revert
+  {
+    float step = enemySpeed * Time.deltaTime;
+    transform.position = Vector3.MoveTowards(transform.position, nextWaypoint.transform.position, step);
+  }
 }
