@@ -245,8 +245,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 709d9a8d7f1b4c54b99aa03c6ee7177e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  exploredColor: {r: 0, g: 0, b: 0, a: 0}
+  towerPrefab: {fileID: 345633637736047149, guid: cc5cb245f9cf4334fb42ad4ad1c96d77,
+    type: 3}
   isExplored: 0
+  isPlaceable: 1
+  isFree: 1
   exploredFrom: {fileID: 0}
 --- !u!65 &6480741061123720249
 BoxCollider:

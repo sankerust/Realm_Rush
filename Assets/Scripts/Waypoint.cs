@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Waypoint : MonoBehaviour
 {
-  [SerializeField] Color exploredColor;
+  [SerializeField] Tower towerPrefab;
+
   public bool isExplored = false;
+  public bool isPlaceable = true;
   public Waypoint exploredFrom;
   const int gridSize = 10;
   Vector2Int gridPos;
@@ -22,7 +24,11 @@ public class Waypoint : MonoBehaviour
     }
 
   void OnMouseOver() {
-    print(gameObject.name);
+    if (Input.GetMouseButtonDown(0) && isPlaceable) {
+      print(gameObject.name + " clicked");
+      Instantiate(towerPrefab, transform.position, Quaternion.identity);
+      isPlaceable = false;
+    }
   }
 
 }

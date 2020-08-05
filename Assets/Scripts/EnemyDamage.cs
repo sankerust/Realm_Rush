@@ -4,32 +4,26 @@ using UnityEngine;
 
 public class EnemyDamage : MonoBehaviour
 {
-  [SerializeField] GameObject hitFx;
+  [SerializeField] ParticleSystem enemyHitFx;
+  [SerializeField] ParticleSystem enemyDeathFx;
   [SerializeField] int hitPoints = 15;
-  AudioSource sound;
 
-    // Start is called before the first frame update
-    void Start()
-    {
-      sound = GetComponent<AudioSource>();
-      sound.Stop();
-    }
    private void OnParticleCollision(GameObject other) {
-      GameObject enemyHitFx = Instantiate(hitFx, transform.position, Quaternion.identity);
       ProcessHit();
       if (hitPoints <= 0)
       {
         KillEnemy();
       }
-      //enemyHitFx.transform.parent = parent;
     }
     private void KillEnemy()
     {
+      var vfx = Instantiate(enemyDeathFx, transform.position, Quaternion.identity);
+      vfx.Play();
       Destroy(gameObject);
     }
     private void ProcessHit()
     {
+      enemyHitFx.Play();
       hitPoints--;
-      sound.Play();
     }
 }

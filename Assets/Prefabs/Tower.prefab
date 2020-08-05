@@ -284,7 +284,7 @@ ParticleSystem:
     startSize:
       serializedVersion: 2
       minMaxState: 0
-      scalar: 1
+      scalar: 2
       minScalar: 1
       maxCurve:
         serializedVersion: 2
@@ -4799,7 +4799,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   objectToPan: {fileID: 343819173262286205}
-  attackRange: 10
+  attackRange: 20
   projectileParticle: {fileID: 699143937}
 --- !u!1001 &345633636281837845
 PrefabInstance:
