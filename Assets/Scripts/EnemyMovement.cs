@@ -6,7 +6,8 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
   Waypoint nextWaypoint;
-  float enemySpeed = 10f;
+  [SerializeField] float enemySpeed = 10f;
+  [SerializeField] ParticleSystem finalExplosionFx;
     
     
     void Start()
@@ -21,16 +22,26 @@ public class EnemyMovement : MonoBehaviour
     foreach (Waypoint waypoint in path)
     {
         nextWaypoint = waypoint;
-        yield return new WaitForSeconds(1f);
+        yield return new WaitForSeconds(1 / (enemySpeed / 10));
     }
-
+    EnemyReachedEnd();
   }
+
+  private void EnemyReachedEnd()
+  {
+    var reachedEndEffect = Instantiate(finalExplosionFx, transform.position, Quaternion.identity);
+    reachedEndEffect.Play();
+
+    Destroy(reachedEndEffect.gameObject, finalExplosionFx.main.duration);
+    Destroy(gameObject);
+  }
+
   void Update()
   {
     SmoothMovement();
     transform.LookAt(nextWaypoint.transform);
-  }
 
+  }
   private void SmoothMovement()
   {
     float step = enemySpeed * Time.deltaTime;
