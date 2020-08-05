@@ -9,6 +9,7 @@ public class Tower : MonoBehaviour
   [SerializeField] float attackRange = 10f;
   [SerializeField] ParticleSystem projectileParticle;
   Transform targetEnemy;
+  public Waypoint baseWaypoint;
   void Start() {
 
   }
@@ -28,9 +29,8 @@ public class Tower : MonoBehaviour
   {
     var sceneEnemies = FindObjectsOfType<EnemyDamage>();
     if (sceneEnemies.Length == 0) { return; }
-
     Transform closestEnemy = sceneEnemies[0].transform;
-
+    
     foreach (EnemyDamage testEnemy in sceneEnemies) {
       closestEnemy = GetClosest(closestEnemy, testEnemy.transform);
     }

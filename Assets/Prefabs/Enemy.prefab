@@ -63,7 +63,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0548c9904485734ba8cfe5132252538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 5
 --- !u!114 &123196974
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -79,7 +78,7 @@ MonoBehaviour:
   enemyHitFx: {fileID: 2408202913200892229}
   enemyDeathFx: {fileID: 198537984209914932, guid: 1a51bfda454239a41afb7dee687c6ac0,
     type: 3}
-  hitPoints: 3
+  hitPoints: 10
 --- !u!1 &1646541640735296
 GameObject:
   m_ObjectHideFlags: 0

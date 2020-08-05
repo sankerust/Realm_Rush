@@ -14,16 +14,9 @@ public class CubeEditor : MonoBehaviour
   {
     waypoint = GetComponent<Waypoint>();
   }
-
-  void Start() 
-  {
-
-  }
-
-    void Update()
+  void Update()
   {
     SnapToGrid();
-
     UpdateLabel();
   }
 

@@ -29,6 +29,7 @@ public class EnemyMovement : MonoBehaviour
   void Update()
   {
     SmoothMovement();
+    transform.LookAt(nextWaypoint.transform);
   }
 
   private void SmoothMovement() //remove completely and uncomment FollowPath to revert
