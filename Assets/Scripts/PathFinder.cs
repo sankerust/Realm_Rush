@@ -6,6 +6,7 @@ using UnityEngine;
 public class PathFinder : MonoBehaviour
 {
   [SerializeField] Waypoint startWaypoint, endWaypoint;
+  [SerializeField] GameObject roadSegment;
   Vector2Int [] directions = {
     Vector2Int.up,
     Vector2Int.right,
@@ -49,6 +50,12 @@ public class PathFinder : MonoBehaviour
   private void SetAsPath(Waypoint waypoint) {
     path.Add(waypoint);
     waypoint.isPlaceable = false;
+    DrawRoad(waypoint);
+  }
+
+  private void DrawRoad(Waypoint waypoint)
+  {
+    Instantiate(roadSegment, waypoint.transform.position, Quaternion.identity);
   }
 
   private void BreadthFirstSearch()
@@ -95,7 +102,7 @@ public class PathFinder : MonoBehaviour
   public void LoadBlocks()
     {
       var waypoints = FindObjectsOfType<Waypoint>();
-      foreach (Waypoint waypoint  in waypoints)
+      foreach (Waypoint waypoint in waypoints)
       {
         var gridPos = waypoint.GetGridPos();
         if (grid.ContainsKey(gridPos)) {
