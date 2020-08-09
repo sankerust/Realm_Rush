@@ -8816,11 +8816,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 24148f37815fe954e9533d32ed543823, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  secondsBetweenSpawn: 3.2
-  enemySpeed: 28
+  secondsBetweenSpawn: 2.7
+  enemySpeed: 10
+  enemyHP: 2
   enemyPrefab: {fileID: 8100218012406794187, guid: 04f81ff9814844ccfa08226f8d46a3f4,
     type: 3}
-  unitCount: 999
   enemyParentTransform: {fileID: 1063932815}
   ScoreText: {fileID: 980995455}
   spawnedEnemySfx: {fileID: 8300000, guid: be0380425ace24d46811e3e5e2f94cd3, type: 3}
@@ -9630,7 +9630,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0bf4064558686a940987c85bfd0e17e6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHP: 5
+  playerHP: 100
   healthText: {fileID: 1220985210}
   reachedBaseSfx: {fileID: 8300000, guid: 9bd46bcf7fbb3eb41a196e7bbcecadf4, type: 3}
 --- !u!82 &1137783489
@@ -10905,7 +10905,7 @@ AudioSource:
   m_PlayOnAwake: 1
   m_Volume: 0.155
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -17766,22 +17766,22 @@ PrefabInstance:
     - target: {fileID: 6739256576210172955, guid: c53659fb0cd7c2046af86d2ac4b046c1,
         type: 3}
       propertyPath: m_BoundingSphereOverride.x
-      value: 8.132e-42
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 6739256576210172955, guid: c53659fb0cd7c2046af86d2ac4b046c1,
         type: 3}
       propertyPath: m_BoundingSphereOverride.y
-      value: 0
+      value: 7e-45
       objectReference: {fileID: 0}
     - target: {fileID: 6739256576210172955, guid: c53659fb0cd7c2046af86d2ac4b046c1,
         type: 3}
       propertyPath: m_BoundingSphereOverride.z
-      value: 0
+      value: 8.039e-42
       objectReference: {fileID: 0}
     - target: {fileID: 6739256576210172955, guid: c53659fb0cd7c2046af86d2ac4b046c1,
         type: 3}
       propertyPath: m_BoundingSphereOverride.w
-      value: 2.1e-44
+      value: 1.05e-43
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: c53659fb0cd7c2046af86d2ac4b046c1, type: 3}

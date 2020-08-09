@@ -8,8 +8,8 @@ public class EnemySpawner : MonoBehaviour
 {
   [Range(0.1f, 120f)][SerializeField] float secondsBetweenSpawn = 2f;
   [SerializeField] float enemySpeed = 10f;
+  [SerializeField] int enemyHP = 10;
   [SerializeField] EnemyMovement enemyPrefab;
-  [SerializeField] int unitCount;
   [SerializeField] Transform enemyParentTransform;
   [SerializeField] Text ScoreText;
   [SerializeField] AudioClip spawnedEnemySfx;
@@ -29,23 +29,26 @@ public class EnemySpawner : MonoBehaviour
       return enemySpeed;
     }
 
+  public int EnemyHP()
+  {
+    return enemyHP;
+  }
+
     private void IncreaseDifficulty() {
-      if ((playerScore % 3) == 0) {
-        enemySpeed = enemySpeed + 3;
-      } else if (enemySpeed >= 30) {
-        secondsBetweenSpawn++;
+      if ((playerScore % 3) == 0 && enemySpeed <= 20) {
+        enemySpeed = enemySpeed + 6;
+      } else if (enemySpeed >= 20 && enemyHP <= 10) {
+        enemyHP++;
       };
     }
 
   private IEnumerator SpawnEnemyUnit()
   {
-    while (unitCount > 0)
-    {
-      GetComponent<AudioSource>().PlayOneShot(spawnedEnemySfx);
-      var newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
-      newEnemy.transform.parent = enemyParentTransform;
-      unitCount--;
-      yield return new WaitForSeconds(secondsBetweenSpawn);
+    while (true) {
+    GetComponent<AudioSource>().PlayOneShot(spawnedEnemySfx);
+    var newEnemy = Instantiate(enemyPrefab, transform.position, Quaternion.identity);
+    newEnemy.transform.parent = enemyParentTransform;
+    yield return new WaitForSeconds(secondsBetweenSpawn);
     }
   }
 

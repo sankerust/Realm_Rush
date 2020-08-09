@@ -7,11 +7,14 @@ public class EnemyDamage : MonoBehaviour
 {
   [SerializeField] ParticleSystem enemyHitFx;
   [SerializeField] ParticleSystem enemyDeathFx;
-  [SerializeField] int hitPoints = 15;
   [SerializeField] AudioClip enemyExplosionSfx;
   [SerializeField] AudioClip enemyHitSfx;
   AudioSource myAudioSource;
+  EnemySpawner enemySpawner;
+  int hitPoints;
   private void Start() {
+    enemySpawner = FindObjectOfType<EnemySpawner>();
+    hitPoints = enemySpawner.EnemyHP();
     myAudioSource = GetComponent<AudioSource>();
   }
    private void OnParticleCollision(GameObject other) {

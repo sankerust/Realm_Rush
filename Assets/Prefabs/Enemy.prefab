@@ -63,7 +63,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c0548c9904485734ba8cfe5132252538, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  enemySpeed: 10
   finalExplosionFx: {fileID: 198537984209914932, guid: ee1156c60a8793343a0fc17d28ff860c,
     type: 3}
 --- !u!114 &123196974
@@ -81,7 +80,6 @@ MonoBehaviour:
   enemyHitFx: {fileID: 2408202913200892229}
   enemyDeathFx: {fileID: 198537984209914932, guid: 1a51bfda454239a41afb7dee687c6ac0,
     type: 3}
-  hitPoints: 2
   enemyExplosionSfx: {fileID: 8300000, guid: 54871e8c3fda23641b24d743a96bbe1c, type: 3}
   enemyHitSfx: {fileID: 8300000, guid: 5d02dc4013446814bb3eb12b66ffae03, type: 3}
 --- !u!82 &3436261086293813623
@@ -96,7 +94,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 1
-  m_Volume: 0.642
+  m_Volume: 0.429
   m_Pitch: 1
   Loop: 0
   Mute: 0
