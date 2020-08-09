@@ -9,6 +9,12 @@ public class TowerFactory : MonoBehaviour
   int towerLimit = 5;
   [SerializeField] Tower towerPrefab;
   [SerializeField] Transform towerParentTransform;
+  [SerializeField] AudioClip towerPlacementSfx;
+  AudioSource myAudioSource;
+  private void Start()
+  {
+    myAudioSource = GetComponent<AudioSource>();
+  }
   public Queue<Tower> towerQueue = new Queue<Tower>();
     public void AddTower(Waypoint baseWaypoint) {
       int numberOfTowersIngame = towerQueue.Count;
@@ -28,6 +34,7 @@ public class TowerFactory : MonoBehaviour
     newTower.baseWaypoint= baseWaypoint;
     baseWaypoint.isPlaceable = false;
     towerQueue.Enqueue(newTower);
+    AudioSource.PlayClipAtPoint(towerPlacementSfx, Camera.main.transform.position);
   }
 
   private void MoveExistingTower(Waypoint newBaseWaypoint)

@@ -8,16 +8,19 @@ public class Tower : MonoBehaviour
   [SerializeField] Transform objectToPan;
   [SerializeField] float attackRange = 10f;
   [SerializeField] ParticleSystem projectileParticle;
+  [SerializeField] AudioClip shootSfx;
+  AudioSource myAudioSource;
   Transform targetEnemy;
   public Waypoint baseWaypoint;
   void Start() {
-
+    myAudioSource = GetComponent<AudioSource>();
   }
     void Update()
     {
       SetTargetEnemy();
       if (targetEnemy) {
         objectToPan.LookAt(targetEnemy);
+        objectToPan.transform.Rotate(0, 270, 0);
         FireAtEnemy();
       } else {
         Shoot(false);
@@ -51,11 +54,21 @@ public class Tower : MonoBehaviour
   private void FireAtEnemy()
   {
      float distanceToEnemy = Vector3.Distance(targetEnemy.transform.position, gameObject.transform.position);
-     if (distanceToEnemy <= attackRange) {
-       Shoot(true);
-     } else {
+     if (distanceToEnemy <= attackRange)
+    {
+      Shoot(true);
+      PlayShootSound();
+    }
+    else {
        Shoot(false);
      }
+  }
+
+  private void PlayShootSound()
+  {
+    if (!myAudioSource.isPlaying) {
+      //myAudioSource.Play();
+    }
   }
 
   private void Shoot(bool isActive )
@@ -63,5 +76,4 @@ public class Tower : MonoBehaviour
     var emissionModule = projectileParticle.emission;
     emissionModule.enabled = isActive;
   }
-
 }

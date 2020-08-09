@@ -7,13 +7,14 @@ public class PlayerHealth : MonoBehaviour
 {
   [SerializeField] int playerHP = 5;
   [SerializeField] Text healthText;
+  [SerializeField] AudioClip reachedBaseSfx;
 
   private void Start() {
-    healthText.text =  playerHP.ToString();
+    healthText.text =  "Base integrity: " + playerHP.ToString();
   }
     private void OnTriggerEnter(Collider other) {
+      GetComponent<AudioSource>().PlayOneShot(reachedBaseSfx);
       playerHP--;
-      healthText.text = playerHP.ToString();
-      print(playerHP);
+      healthText.text = "Base integrity: " + playerHP.ToString();
     }
 }
